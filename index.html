@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เรซูเม่ของฉัน</title>
+    <style>
+        /* กำหนดสไตล์ให้กับ body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* สีพื้นหลังเป็นสีขาว */
+            margin: 0;
+            padding: 0;
+        }
+        /* กำหนดสไตล์ให้กับ header */
+        header {
+            background-color: #f2f2f2; /* สีพื้นหลังของ header */
+            padding: 20px;
+            text-align: center; /* จัดเนื้อหาให้อยู่กลาง */
+        }
+        /* กำหนดสไตล์ให้กับ nav */
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px; /* ระยะห่างระหว่างลิงก์ */
+            text-decoration: none; /* ลบขีดเส้นใต้ */
+            color: #333; /* สีข้อความ */
+        }
+        /* กำหนดสไตล์ให้กับ section */
+        section {
+            padding: 20px;
+            max-width: 800px; /* กำหนดความกว้างสูงสุด */
+            margin: auto; /* จัดให้กลางหน้า */
+        }
+        /* กำหนดสไตล์ให้กับ footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f2f2f2; /* สีพื้นหลังของ footer */
+            position: relative;
+            bottom: 0;
+            width: 100%; /* กำหนดให้ footer ยาวเต็มความกว้าง */
+        }
+        /* ซ่อนเมนูสำหรับมือถือ */
+        .menu {
+            display: none; 
+        }
+        /* กำหนดสไตล์สำหรับหน้าจอเล็ก (มือถือ) */
+        @media (max-width: 600px) {
+            .menu {
+                display: block; /* แสดงเมนู */
+            }
+            nav {
+                display: none; /* ซ่อน nav บนมือถือ */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>เรซูเม่ของฉัน</h1>
+    <nav>
+        <!-- เมนูนำทางไปยังแต่ละส่วน -->
+        <a href="#home">หน้าหลัก</a>
+        <a href="#about">ประวัติส่วนตัว</a>
+        <a href="#education">ประวัติการศึกษา</a>
+        <a href="#experience">ประวัติการทำงาน</a>
+        <a href="#skills">ความสามารถ</a>
+        <a href="#portfolio">ผลงาน</a>
+        <a href="#certificates">เกียรติบัตร</a>
+        <a href="#contact">ช่องทางการติดต่อ</a>
+    </nav>
+</header>
+
+<section id="home">
+    <h2>หน้าหลัก</h2>
+    <p>ยินดีต้อนรับสู่เรซูเม่ของฉัน</p>
+</section>
+
+<section id="about">
+    <h2>ประวัติส่วนตัว</h2>
+    <p>ข้อมูลส่วนตัวของคุณ</p>
+</section>
+
+<section id="education">
+    <h2>ประวัติการศึกษา</h2>
+    <p>รายละเอียดการศึกษาของคุณ</p>
+</section>
+
+<section id="experience">
+    <h2>ประวัติการทำงาน</h2>
+    <p>ประสบการณ์การทำงานของคุณ</p>
+</section>
+
+<section id="skills">
+    <h2>ความสามารถ</h2>
+    <p>ความสามารถที่คุณมี</p>
+</section>
+
+<section id="portfolio">
+    <h2>ผลงาน</h2>
+    <p>ตัวอย่างผลงานที่คุณทำ</p>
+</section>
+
+<section id="certificates">
+    <h2>เกียรติบัตร</h2>
+    <p>รายละเอียดเกียรติบัตรของคุณ</p>
+</section>
+
+<section id="contact">
+    <h2>ช่องทางการติดต่อ</h2>
+    <p>ข้อมูลการติดต่อของคุณ</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 เรซูเม่ของฉัน</p>
+</footer>
+
+<script>
+    // JavaScript สำหรับการจัดการเมนูในมือถือ
+    document.querySelector('.menu').addEventListener('click', function() {
+        var nav = document.querySelector('nav');
+        // แสดงหรือซ่อนเมนูเมื่อคลิก
+        nav.style.display = (nav.style.display === 'none' || nav.style.display === '') ? 'block' : 'none';
+    });
+</script>
+
+</body>
+</html>

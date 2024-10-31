@@ -2,130 +2,77 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เรซูเม่ของฉัน</title>
-    <style>
-        /* กำหนดสไตล์ให้กับ body */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white; /* สีพื้นหลังเป็นสีขาว */
-            margin: 0;
-            padding: 0;
-        }
-        /* กำหนดสไตล์ให้กับ header */
-        header {
-            background-color: #7ccaf7; /* สีพื้นหลังของ header */
-            padding: 20px;
-            text-align: center; /* จัดเนื้อหาให้อยู่กลาง */
-        }
-        /* กำหนดสไตล์ให้กับ nav */
-        nav {
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 15px; /* ระยะห่างระหว่างลิงก์ */
-            text-decoration: none; /* ลบขีดเส้นใต้ */
-            color: #333; /* สีข้อความ */
-        }
-        /* กำหนดสไตล์ให้กับ section */
-        section {
-            padding: 20px;
-            max-width: 800px; /* กำหนดความกว้างสูงสุด */
-            margin: auto; /* จัดให้กลางหน้า */
-        }
-        /* กำหนดสไตล์ให้กับ footer */
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #b3b3b3; /* สีพื้นหลังของ footer */
-            position: relative;
-            bottom: 0;
-            width: 100%; /* กำหนดให้ footer ยาวเต็มความกว้าง */
-        }
-        /* ซ่อนเมนูสำหรับมือถือ */
-        .menu {
-            display: none; 
-        }
-        /* กำหนดสไตล์สำหรับหน้าจอเล็ก (มือถือ) */
-        @media (max-width: 600px) {
-            .menu {
-                display: block; /* แสดงเมนู */
-            }
-            nav {
-                display: none; /* ซ่อน nav บนมือถือ */
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- เพื่อให้หน้าเว็บรองรับการแสดงผลในทุกอุปกรณ์ -->
+    <title>Resume</title>
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
+    <!-- ส่วนหัวของเว็บ -->
+    <header>
+        <div class="container">
+            <h1>WEERAWAT WICHIAN</h1>
+            <p>ยินดีต้อนรับสู่เว็บไซต์ Resume ของฉัน</p>
+        </div>
+    </header>
 
-<header >
-    <h1>เรซูเม่ของฉัน</h1>
+    <!-- เมนูนำทาง -->
     <nav>
-        <!-- เมนูนำทางไปยังแต่ละส่วน -->
-        <a href="#home">หน้าหลัก</a>
-        <a href="#about">ประวัติส่วนตัว</a>
-        <a href="#education">ประวัติการศึกษา</a>
-        <a href="#experience">ประวัติการทำงาน</a>
-        <a href="#skills">ความสามารถ</a>
-        <a href="#portfolio">ผลงาน</a>
-        <a href="#certificates">เกียรติบัตร</a>
-        <a href="#contact">ช่องทางการติดต่อ</a>
+        <ul>
+            <li><a href="#about" class="menu-link"><i class="fas fa-user"></i> เกี่ยวกับฉัน</a></li>
+            <li><a href="#skills" class="menu-link"><i class="fas fa-tools"></i> ทักษะ</a></li>
+            <li><a href="#portfolio" class="menu-link"><i class="fas fa-briefcase"></i> ผลงาน</a></li>
+            <li><a href="#contact" class="menu-link"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
+        </ul>
     </nav>
-</header>
+    
 
-<section id="home">
-    <h2>หน้าหลัก</h2>
-    <p>ยินดีต้อนรับสู่เรซูเม่ของฉัน</p>
-</section>
+    <!-- ส่วนเนื้อหาเกี่ยวกับเจ้าของเว็บ -->
+    <section id="about" class="container">
+        <h2>เกี่ยวกับฉัน</h2>
+        <img src="https://scontent.fnak3-1.fna.fbcdn.net/v/t39.30808-6/459416334_122141645210281078_5311522360597020534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=uU3aVjAvQs0Q7kNvgEB7Vog&_nc_zt=23&_nc_ht=scontent.fnak3-1.fna&_nc_gid=AGa-93wwaqgspwTeAdSfSin&oh=00_AYCU-SfBgCbufZzZWvrhrpqyUtzKaxwc1-2wHuml7Lpm1w&oe=67297B96" alt="รูปเจ้าของเว็บ" class="profile-pic">
+        <h2>สวัสดีครับ ผม อาม วีระวัฒน์ วิเชียร นี่คือวีดีโอแนะนำตัวของผม</h2>
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4Z8fGcx5N2A?si=96t6K-lhQ8_uYdiz" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
 
-<section id="about">
-    <h2>ประวัติส่วนตัว</h2>
-    <p>ข้อมูลส่วนตัวของคุณ</p>
-</section>
+    <!-- ส่วนทักษะ -->
+    <section id="skills" class="container">
+        <h2>ทักษะ</h2>
+        <p>รายการทักษะหลัก ๆ ที่ฉันมี</p>
+    </section>
 
-<section id="education">
-    <h2>ประวัติการศึกษา</h2>
-    <p>รายละเอียดการศึกษาของคุณ</p>
-</section>
+    <!-- ส่วนผลงาน -->
+    <section id="portfolio" class="container">
+        <h2>ผลงาน</h2>
+        <p>ตัวอย่างผลงานที่ผ่านมาของฉัน</p>
+    </section>
 
-<section id="experience">
-    <h2>ประวัติการทำงาน</h2>
-    <p>ประสบการณ์การทำงานของคุณ</p>
-</section>
+    <!-- ส่วนติดต่อ -->
+    <section id="contact" class="container">
+        <h2>ติดต่อ</h2>
+        <p>สามารถติดต่อได้ที่ [เบอร์ติดต่อหรืออีเมล]</p>
+    </section>
 
-<section id="skills">
-    <h2>ความสามารถ</h2>
-    <p>ความสามารถที่คุณมี</p>
-</section>
+    <!-- ส่วนท้ายของเว็บ -->
+    <footer>
+        <p>&copy; 2024 [ชื่อคุณ] - เว็บไซต์ Resume</p>
+    </footer>
 
-<section id="portfolio">
-    <h2>ผลงาน</h2>
-    <p>ตัวอย่างผลงานที่คุณทำ</p>
-</section>
-
-<section id="certificates">
-    <h2>เกียรติบัตร</h2>
-    <p>รายละเอียดเกียรติบัตรของคุณ</p>
-</section>
-
-<section id="contact">
-    <h2>ช่องทางการติดต่อ</h2>
-    <p>ข้อมูลการติดต่อของคุณ</p>
-</section>
-
-<footer>
-    <p>&copy; 2024 เรซูเม่ของฉัน</p>
-</footer>
-
-<script>
-    // JavaScript สำหรับการจัดการเมนูในมือถือ
-    document.querySelector('.menu').addEventListener('click', function() {
-        var nav = document.querySelector('nav');
-        // แสดงหรือซ่อนเมนูเมื่อคลิก
-        nav.style.display = (nav.style.display === 'none' || nav.style.display === '') ? 'block' : 'none';
-    });
-</script>
-
+    <!-- JavaScript สำหรับลูกเล่นในเมนู -->
+    <script>
+        // เพิ่มลูกเล่นให้เมนูมีการแสดงผลพิเศษเมื่อเอาเมาส์ชี้
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.classList.add('hover');
+            });
+            link.addEventListener('mouseout', () => {
+                link.classList.remove('hover');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ตั้งค่าพื้นฐานของเว็บ */
+body {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+header {
+    background-color: #6effcc;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ขนาดของชื่อเว็บใน header */
+h1 {
+    font-size: 2.5em;
+    color: #555;
+}
+
+/* เมนูหลัก */
+nav {
+    background-color: #fff;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* ตั้งค่าเมนูหลักสำหรับมือถือ */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+.menu-link {
+    color: #777;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.menu-link:hover {
+    color: #5b9cff;
+    transform: scale(1.1);
+}
+
+/* ส่วนเนื้อหาหลัก */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-pic {
+    max-width: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.video iframe {
+    width: 100%;
+    height: 315px;
+}
+
+/* ตั้งค่าเพื่อให้รูปแสดงเป็น responsive */
+@media (max-width: 768px) {
+    .profile-pic {
+        max-width: 100px;
+    }
+}
+
+/* ส่วน footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #999;
+    background-color: #f0f0f0;
+}
+
+/* ไอคอนในเมนู */
+.icon {
+    margin-right: 8px;
+}

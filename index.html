@@ -33,11 +33,34 @@
         <h2>เกี่ยวกับฉัน</h2>
         <img src="https://scontent.fnak3-1.fna.fbcdn.net/v/t39.30808-6/459416334_122141645210281078_5311522360597020534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=uU3aVjAvQs0Q7kNvgEB7Vog&_nc_zt=23&_nc_ht=scontent.fnak3-1.fna&_nc_gid=AGa-93wwaqgspwTeAdSfSin&oh=00_AYCU-SfBgCbufZzZWvrhrpqyUtzKaxwc1-2wHuml7Lpm1w&oe=67297B96" alt="รูปเจ้าของเว็บ" class="profile-pic">
         <h2>สวัสดีครับ ผม อาม วีระวัฒน์ วิเชียร นี่คือวีดีโอแนะนำตัวของผม</h2>
-        <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/4Z8fGcx5N2A?si=96t6K-lhQ8_uYdiz" frameborder="0" allowfullscreen></iframe>
-        </div>
+   <!-- วิดีโอแนะนำตัวที่จะเล่นอัตโนมัติเมื่อเลื่อนผ่าน -->
+   <div class="video">
+    <video controls id="introVideo" width="100%" muted>
+        <source src="video/present.mp4" type="video/mp4">
+        ขอโทษค่ะ เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+    </video>
+    </div>
     </section>
-
+    <script>
+        // เลือกวิดีโอที่ต้องการให้เล่นอัตโนมัติเมื่อเลื่อนผ่าน
+        const video = document.getElementById('introVideo');
+    
+        // สร้าง Intersection Observer เพื่อตรวจจับการเลื่อนเข้าหน้าจอ
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // เล่นวิดีโอเมื่อวิดีโอเข้าสู่หน้าจอ
+                    video.play();
+                } else {
+                    // หยุดวิดีโอเมื่อเลื่อนออกจากหน้าจอ
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 }); // threshold: 0.5 หมายถึงอย่างน้อย 50% ของวิดีโอต้องเข้าหน้าจอ
+    
+        // เริ่มการสังเกตวิดีโอ
+        observer.observe(video);
+    </script>
     <!-- ส่วนทักษะ -->
     <section id="skills" class="container">
         <h2>ทักษะ</h2>

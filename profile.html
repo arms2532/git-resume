@@ -17,6 +17,17 @@
             <p class="en">Nickname: Arm</p>
         </div>
 
+        <!-- วีดีโอแนะนำตัว -->
+        <section class="intro-video">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="วีดีโอแนะนำตัว" class="icon"> วีดีโอแนะนำตัว</h2>
+            <h2 class="en"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Introduction Video" class="icon"> Introduction Video</h2>
+            <video id="introVideo" src="/video/present.mp4" controls  width="100%">
+                วิดีโอของคุณไม่สามารถแสดงได้ กรุณาลองใช้อุปกรณ์อื่น
+                <br>
+                Your browser does not support the video tag. Please try another device.
+            </video>
+        </section>
+
         <!-- ข้อมูลส่วนตัว -->
         <section class="profile-info">
             <h2><img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" alt="ข้อมูลส่วนตัว" class="icon"> ข้อมูลส่วนตัว</h2>
@@ -30,17 +41,7 @@
             <p class="en"><strong>Address:</strong> 257, Moo 6, Nong Bot Subdistrict, Nang Rong District, Buriram Province, Thailand</p>
         </section>
 
-        <!-- วีดีโอแนะนำตัว -->
-        <section class="intro-video">
-            <h2><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="วีดีโอแนะนำตัว" class="icon"> วีดีโอแนะนำตัว</h2>
-            <h2 class="en"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Introduction Video" class="icon"> Introduction Video</h2>
-            <video id="introVideo" src="/video/present.mp4" controls  width="100%">
-                วิดีโอของคุณไม่สามารถแสดงได้ กรุณาลองใช้อุปกรณ์อื่น
-                <br>
-                Your browser does not support the video tag. Please try another device.
-            </video>
-        </section>
-        
+   
         <!-- ข้อมูลการศึกษา -->
         <section class="education">
             <h2><img src="https://cdn-icons-png.flaticon.com/512/1077/1077090.png" alt="การศึกษา" class="icon"> การศึกษา</h2>
@@ -72,18 +73,23 @@
 
     <!-- JavaScript ตรวจจับการเลื่อน -->
     <script>
+        // เลือกวิดีโอที่ต้องการให้เล่นอัตโนมัติเมื่อเลื่อนผ่าน
         const video = document.getElementById('introVideo');
+
+        // สร้าง Intersection Observer เพื่อตรวจจับการเลื่อนเข้าหน้าจอ
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { 
-                    video.play(); 
-                    video.muted = false; 
-                } else { 
-                    video.pause(); 
-                    video.muted = true; 
+                if (entry.isIntersecting) {
+                    // เล่นวิดีโอเมื่อวิดีโอเข้าสู่หน้าจอ
+                    video.play();
+                } else {
+                    // หยุดวิดีโอเมื่อเลื่อนออกจากหน้าจอ
+                    video.pause();
                 }
             });
-        });
+        }, { threshold: 0.5 }); // threshold: 0.5 หมายถึงอย่างน้อย 50% ของวิดีโอต้องเข้าหน้าจอ
+
+        // เริ่มการสังเกตวิดีโอ
         observer.observe(video);
     </script>
 

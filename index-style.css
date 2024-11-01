@@ -7,20 +7,41 @@
 
 /* ตั้งค่าพื้นฐานของเว็บ */
 body {
-    background-color: #f2f2f2;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh; /* ใช้ความสูงของ viewport */
 }
 
 header {
-    background-color: #6effcc;
-    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
     text-align: center;
+    height: 100px;
+}
+
+.content {
+    flex: 1; /* ให้ส่วน content ขยายเต็มที่ */
+    overflow-y: auto; /* ให้สามารถเลื่อนสกอล์บาร์ในแนวดิ่ง */
+    padding: 10px;
+    background-color: #f9f9f9;
+    
+}
+
+
+
+iframe {
+    border: none; /* ไม่มีเส้นขอบ */
+    width: 100%;
+    height: 100%; /* ให้ iframe ขยายเต็มที่ */
+    
 }
 
 /* ขนาดของชื่อเว็บใน header */
 h1 {
     font-size: 2.5em;
-    color: #555;
+    /* color: #555; */
 }
 
 /* เมนูหลัก */
@@ -61,9 +82,10 @@ nav ul li {
 
 /* ส่วนเนื้อหาหลัก */
 .container {
-    padding: 20px;
+    padding: 10px;
     max-width: 800px;
     margin: 0 auto;
+
 }
 
 .profile-pic {
@@ -75,20 +97,20 @@ nav ul li {
 
 h2 {
     font-size: 1.8em;
-    color: #333;
+    /* color: #333; */
     margin-bottom: 10px;
 }
 
 p {
     font-size: 1em;
-    color: #666;
+    /* color: #666; */
     line-height: 1.6;
 }
-
+/* 
 .video iframe {
     width: 100%;
     height: 315px;
-}
+} */
 
 /* ตั้งค่าเพื่อให้รูปแสดงเป็น responsive */
 @media (max-width: 768px) {
@@ -99,13 +121,12 @@ p {
 
 /* ส่วน footer */
 footer {
-    text-align: center;
-    padding: 20px;
     font-size: 0.9em;
-    color: #999;
-    background-color: #6effcc;
+    background-color: #252525;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
-
 /* ไอคอนในเมนู */
 .icon {
     margin-right: 8px;

@@ -1,94 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แบ่งหน้าเพจสามส่วน</title>
-<style>
-  /* การตั้งค่าทั่วไปของหน้า */
-  body, html {
-    margin: 0; /* ลบระยะขอบรอบๆ หน้า */
-    padding: 0; /* ลบระยะห่างภายในรอบๆ หน้า */
-    font-family: Arial, sans-serif; /* กำหนดฟอนต์ของเพจ */
-    height: 100vh; /* กำหนดความสูงเต็มจอ */
-    display: flex;
-    flex-direction: column; /* จัดเรียงองค์ประกอบภายในเป็นแนวตั้ง */
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบ่งหน้าเว็บเป็น 3 ส่วน</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            height: 100vh; /* ใช้ความสูงของ viewport */
+        }
 
-  /* ส่วนบน (Header) */
-  header {
-    background-color: #4CAF50; /* กำหนดสีพื้นหลัง */
-    color: white; /* กำหนดสีตัวอักษรเป็นสีขาว */
-    padding: 20px; /* กำหนดระยะห่างภายใน */
-    text-align: center; /* จัดตัวอักษรไว้ตรงกลาง */
-  }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
-  /* ส่วนกลาง (Main) ทั้งหมด */
-  main {
-    flex: 1; /* ให้ Main ขยายพื้นที่ที่เหลือจากส่วนอื่น */
-    display: flex; /* กำหนดการจัดวางให้เป็นแบบ Flexbox */
-    overflow: hidden; /* ซ่อนสกอร์บาร์หลักของ Main */
-  }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
-  /* เมนูด้านซ้าย (Sidebar) */
-  .sidebar {
-    width: 200px; /* กำหนดความกว้างของเมนูด้านซ้าย */
-    background-color: #f4f4f4; /* กำหนดสีพื้นหลังให้เมนูด้านซ้าย */
-    padding: 20px; /* กำหนดระยะห่างภายในของเมนู */
-    overflow-y: auto; /* กำหนดสกอร์บาร์ในแนวตั้งให้กับเมนู */
-  }
+        .content {
+            flex: 1; /* ให้ส่วน content ขยายเต็มที่ */
+            overflow-y: auto; /* ให้สามารถเลื่อนสกอล์บาร์ในแนวดิ่ง */
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
 
-  /* เนื้อหาด้านขวาที่สามารถเลื่อนสกอร์บาร์ได้ */
-  .content {
-    flex: 1; /* ให้พื้นที่ของเนื้อหาด้านขวาขยายเต็มที่ใน Main */
-    padding: 20px; /* กำหนดระยะห่างภายใน */
-    overflow-y: auto; /* กำหนดให้เลื่อนสกอร์บาร์เฉพาะในแนวตั้ง */
-  }
-
-  /* ส่วนล่าง (Footer) */
-  footer {
-    background-color: #333; /* กำหนดสีพื้นหลังของ Footer */
-    color: white; /* กำหนดสีตัวอักษรใน Footer */
-    text-align: center; /* จัดตัวอักษรไว้ตรงกลาง */
-    padding: 10px; /* กำหนดระยะห่างภายใน */
-  }
-</style>
+        iframe {
+            border: none; /* ไม่มีเส้นขอบ */
+            width: 100%;
+            height: 100%; /* ให้ iframe ขยายเต็มที่ */
+        }
+    </style>
 </head>
 <body>
 
-<!-- ส่วนบน -->
-<header>
-  <h1>แบนเนอร์และเมนูนำทาง</h1> <!-- แสดงหัวข้อใหญ่เป็นแบนเนอร์ -->
-</header>
+    <header>
+        <h1>Header</h1>
+    </header>
 
-<!-- ส่วนกลาง -->
-<main>
-  <!-- เมนูด้านซ้าย -->
-  <div class="sidebar">
-    <h2>เมนู</h2> <!-- แสดงหัวข้อเมนู -->
-    <ul>
-      <!-- ลิสต์เมนูที่ต้องการให้ผู้ใช้คลิกเพื่อไปยังหน้าต่างๆ -->
-      <li>หน้าแรก</li>
-      <li>เกี่ยวกับเรา</li>
-      <li>บริการ</li>
-      <li>ติดต่อเรา</li>
-    </ul>
-  </div>
+    <div class="content">
+        <iframe src="profile.html" title="Content Area"></iframe>
+    </div>
 
-  <!-- เนื้อหาด้านขวา -->
-  <div class="content">
-    <h2>เนื้อหาที่ดึงมาจากเพจอื่น</h2> <!-- หัวข้อของเนื้อหา -->
-    <p>เนื้อหานี้จะเลื่อนสกอร์บาร์ได้เฉพาะส่วนนี้เท่านั้น</p>
-    <!-- วิดีโอหรือเนื้อหาจากเพจอื่นที่ถูกฝังในเพจ -->
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" width="100%" height="300" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <!-- ฝัง iframe วิดีโอจาก YouTube (ต้องใส่ VIDEO_ID ของวิดีโอที่ต้องการ) -->
-  </div>
-</main>
-
-<!-- ส่วนล่าง -->
-<footer>
-  <p>Footer</p> <!-- แสดงข้อความของ Footer -->
-</footer>
+    <footer>
+        <p>Footer</p>
+    </footer>
 
 </body>
 </html>

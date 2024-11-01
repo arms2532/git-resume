@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Loading with Menu</title>
+    <style>
+        /* การตกแต่งเบื้องต้น */
+        #menu, #content {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>หน้าเว็บหลัก</h1>
+
+<!-- ส่วนเมนูที่ดึงมาจากไฟล์อื่น -->
+<div id="menu">Loading menu...</div>
+
+<!-- ส่วนที่จะแสดงเนื้อหาตามที่ต้องการ -->
+<div id="content">Loading content...</div>
+
+<script>
+    /**
+     * ฟังก์ชันสำหรับดึงข้อมูลจากไฟล์ HTML อื่นมาแสดงผลในหน้าเว็บนี้
+     * @param {string} url - URL ของไฟล์ที่ต้องการดึงข้อมูล (เช่น 'content1.html')
+     * @param {string} elementId - ID ของส่วนที่ต้องการแสดงข้อมูลที่ดึงมาได้
+     */
+    function loadContent(url, elementId) {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+            })
+            .catch(error => {
+                document.getElementById(elementId).innerHTML = "ไม่สามารถโหลดข้อมูลได้: " + error;
+            });
+    }
+
+    // ดึงเมนูจาก menu.html แล้วสร้างฟังก์ชันให้คลิกเพื่อโหลดเนื้อหา
+    loadContent('menu.html', 'menu');
+
+    // จับการคลิกที่เมนูและโหลดเนื้อหาใหม่ใน content
+    document.addEventListener('click', function(event) {
+        if (event.target.matches('.menu-link')) {
+            event.preventDefault(); // ป้องกันไม่ให้ลิงก์โหลดหน้าใหม่
+            const page = event.target.getAttribute('data-page'); // อ่านค่า data-page เพื่อรู้ว่าคลิกที่หน้าไหน
+            loadContent(page, 'content'); // โหลดเนื้อหาจากไฟล์ที่ระบุใน data-page
+        }
+    });
+
+    // โหลดเนื้อหาเริ่มต้นใน content
+    loadContent('content.html', 'content');
+</script>
+
+</body>
+</html>

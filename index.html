@@ -6,6 +6,7 @@
     <title>Arm Resume</title>
     <link rel="stylesheet" href="index-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="profile.css"> -->
 </head>
 <body>
     <!-- ส่วนหัวของเว็บ -->
@@ -20,7 +21,7 @@
     <div id="menu">Loading menu...</div>
 
     <!-- ส่วนที่จะแสดงเนื้อหาตามที่ต้องการ -->
-    <div id="content">Loading content...</div>
+    <div id="content" class="content">Loading content...</div>
     
     <!-- ส่วนท้ายของเว็บ -->
     <footer>
@@ -29,6 +30,7 @@
 
     <!-- JavaScript สำหรับลูกเล่นในเมนู -->
     <script>
+
         // เพิ่มลูกเล่นให้เมนูมีการแสดงผลพิเศษเมื่อเอาเมาส์ชี้
         const menuLinks = document.querySelectorAll('.menu-link');
         menuLinks.forEach(link => {
@@ -59,7 +61,7 @@
                 });
         }
 
-        // ดึงเมนูจาก menu.html แล้วสร้างฟังก์ชันให้คลิกเพื่อโหลดเนื้อหา
+        // ดึงเมนูจาก menubar.html แล้วสร้างฟังก์ชันให้คลิกเพื่อโหลดเนื้อหา
         loadContent('menubar.html', 'menu');
 
         // จับการคลิกที่เมนูและโหลดเนื้อหาใหม่ใน content
@@ -74,20 +76,25 @@
         // โหลดเนื้อหาเริ่มต้นใน content
         loadContent('profile.html', 'content');
 
-        // JavaScript ตรวจจับการเลื่อน
-        const video = document.getElementById('introVideo');
+                // เลือกวิดีโอที่ต้องการให้เล่นอัตโนมัติเมื่อเลื่อนผ่าน
+                const video = document.getElementById('introVideo');
+
+        // สร้าง Intersection Observer เพื่อตรวจจับการเลื่อนเข้าหน้าจอ
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { 
-                    video.play(); 
-                    video.muted = false; 
-                } else { 
-                    video.pause(); 
-                    video.muted = true; 
+                if (entry.isIntersecting) {
+                    // เล่นวิดีโอเมื่อวิดีโอเข้าสู่หน้าจอ
+                    video.play();
+                } else {
+                    // หยุดวิดีโอเมื่อเลื่อนออกจากหน้าจอ
+                    video.pause();
                 }
             });
-        });
+        }, { threshold: 0.5 }); // threshold: 0.5 หมายถึงอย่างน้อย 50% ของวิดีโอต้องเข้าหน้าจอ
+
+        // เริ่มการสังเกตวิดีโอ
         observer.observe(video);
+
     </script>
 </body>
 </html>

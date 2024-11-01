@@ -3,85 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- เพื่อให้หน้าเว็บรองรับการแสดงผลในทุกอุปกรณ์ -->
-    <title>Resume</title>
+    <title>Arm Resume</title>
     <link rel="stylesheet" href="index-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
     <!-- ส่วนหัวของเว็บ -->
     <header>
         <div class="container">
             <h1>WEERAWAT WICHIAN</h1>
-            <p>ยินดีต้อนรับสู่เว็บไซต์ Resume ของฉัน</p>
+            <p>ยินดีต้อนรับสู่เว็บไซต์ส่วนตัวของฉัน</p>
         </div>
     </header>
 
-    <!-- เมนูนำทาง -->
-    <nav>
-        <ul>
-            <li><a href="index.html" class="menu-link"><i class="fas fa-user"></i> เกี่ยวกับฉัน</a></li>
-            <li><a href="skills.html" class="menu-link"><i class="fas fa-tools"></i> ทักษะ</a></li>
-            <li><a href="portfolio.html" class="menu-link"><i class="fas fa-briefcase"></i> ผลงาน</a></li>
-            <li><a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
-        </ul>
-    </nav>
+    <!-- ส่วนเมนูที่ดึงมาจากไฟล์อื่น -->
+    <div id="menu">Loading menu...</div>
+
+    <!-- ส่วนที่จะแสดงเนื้อหาตามที่ต้องการ -->
+    <div id="content">Loading content...</div>
     
-
-    <!-- ส่วนเนื้อหาเกี่ยวกับเจ้าของเว็บ -->
-    <section id="about" class="container">
-        <h2>เกี่ยวกับฉัน</h2>
-        <img src="https://scontent.fnak3-1.fna.fbcdn.net/v/t39.30808-6/459416334_122141645210281078_5311522360597020534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=uU3aVjAvQs0Q7kNvgEB7Vog&_nc_zt=23&_nc_ht=scontent.fnak3-1.fna&_nc_gid=AGa-93wwaqgspwTeAdSfSin&oh=00_AYCU-SfBgCbufZzZWvrhrpqyUtzKaxwc1-2wHuml7Lpm1w&oe=67297B96" alt="รูปเจ้าของเว็บ" class="profile-pic">
-        <h2>สวัสดีครับ ผม อาม วีระวัฒน์ วิเชียร นี่คือวีดีโอแนะนำตัวของผม</h2>
-   <!-- วิดีโอแนะนำตัวที่จะเล่นอัตโนมัติเมื่อเลื่อนผ่าน -->
-   <div class="video">
-    <video controls id="introVideo" width="100%" muted>
-        <source src="video/present.mp4" type="video/mp4">
-        ขอโทษค่ะ เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
-    </video>
-    </div>
-    </section>
-    <script>
-        // เลือกวิดีโอที่ต้องการให้เล่นอัตโนมัติเมื่อเลื่อนผ่าน
-        const video = document.getElementById('introVideo');
-    
-        // สร้าง Intersection Observer เพื่อตรวจจับการเลื่อนเข้าหน้าจอ
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // เล่นวิดีโอเมื่อวิดีโอเข้าสู่หน้าจอ
-                    video.play();
-                } else {
-                    // หยุดวิดีโอเมื่อเลื่อนออกจากหน้าจอ
-                    video.pause();
-                }
-            });
-        }, { threshold: 0.5 }); // threshold: 0.5 หมายถึงอย่างน้อย 50% ของวิดีโอต้องเข้าหน้าจอ
-    
-        // เริ่มการสังเกตวิดีโอ
-        observer.observe(video);
-    </script>
-    <!-- ส่วนทักษะ -->
-    <section id="skills" class="container">
-        <h2>ทักษะ</h2>
-        <p>รายการทักษะหลัก ๆ ที่ฉันมี</p>
-    </section>
-
-    <!-- ส่วนผลงาน -->
-    <section id="portfolio" class="container">
-        <h2>ผลงาน</h2>
-        <p>ตัวอย่างผลงานที่ผ่านมาของฉัน</p>
-    </section>
-
-    <!-- ส่วนติดต่อ -->
-    <section id="contact" class="container">
-        <h2>ติดต่อ</h2>
-        <p>สามารถติดต่อได้ที่ [เบอร์ติดต่อหรืออีเมล]</p>
-    </section>
-
     <!-- ส่วนท้ายของเว็บ -->
     <footer>
-        <p>&copy; 2024 [ชื่อคุณ] - เว็บไซต์ Resume</p>
+        <p>&copy; 2024 WEERAWAT WICHIAN - Resume</p>
     </footer>
 
     <!-- JavaScript สำหรับลูกเล่นในเมนู -->
@@ -96,6 +39,55 @@
                 link.classList.remove('hover');
             });
         });
+
+        /**
+         * ฟังก์ชันสำหรับดึงข้อมูลจากไฟล์ HTML อื่นมาแสดงผลในหน้าเว็บนี้
+         * @param {string} url - URL ของไฟล์ที่ต้องการดึงข้อมูล (เช่น 'content1.html')
+         * @param {string} elementId - ID ของส่วนที่ต้องการแสดงข้อมูลที่ดึงมาได้
+         */
+        function loadContent(url, elementId) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById(elementId).innerHTML = "ไม่สามารถโหลดข้อมูลได้: " + error;
+                });
+        }
+
+        // ดึงเมนูจาก menu.html แล้วสร้างฟังก์ชันให้คลิกเพื่อโหลดเนื้อหา
+        loadContent('menubar.html', 'menu');
+
+        // จับการคลิกที่เมนูและโหลดเนื้อหาใหม่ใน content
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('.menu-link')) {
+                event.preventDefault(); // ป้องกันไม่ให้ลิงก์โหลดหน้าใหม่
+                const page = event.target.getAttribute('data-page'); // อ่านค่า data-page เพื่อรู้ว่าคลิกที่หน้าไหน
+                loadContent(page, 'content'); // โหลดเนื้อหาจากไฟล์ที่ระบุใน data-page
+            }
+        });
+
+        // โหลดเนื้อหาเริ่มต้นใน content
+        loadContent('profile.html', 'content');
+
+        // JavaScript ตรวจจับการเลื่อน
+        const video = document.getElementById('introVideo');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { 
+                    video.play(); 
+                    video.muted = false; 
+                } else { 
+                    video.pause(); 
+                    video.muted = true; 
+                }
+            });
+        });
+        observer.observe(video);
     </script>
 </body>
 </html>

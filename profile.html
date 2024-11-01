@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรไฟล์ นายวีระวัฒน์ วิเชียร</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="https://scontent.fnak3-1.fna.fbcdn.net/v/t39.30808-6/459416334_122141645210281078_5311522360597020534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=uU3aVjAvQs0Q7kNvgFNWBbS&_nc_zt=23&_nc_ht=scontent.fnak3-1.fna&_nc_gid=ATZgRoSzgFoHmL1vDLonVlK&oh=00_AYDp1kCHk-baEQ9eg-zUUG5zQ-FuFX_FWh0tnMLCg-I-IA&oe=672ACD16" alt="รูปโปรไฟล์" class="profile-pic">
+            <h1>นายวีระวัฒน์ วิเชียร</h1>
+            <p>ชื่อเล่น: อาม</p>
+            <p class="en">Mr. Weerawat Wichian</p>
+            <p class="en">Nickname: Arm</p>
+        </div>
+
+        <!-- ข้อมูลส่วนตัว -->
+        <section class="profile-info">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" alt="ข้อมูลส่วนตัว" class="icon"> ข้อมูลส่วนตัว</h2>
+            <p><strong>วันเกิด:</strong> 15 มิถุนายน พ.ศ. 2532</p>
+            <p class="en"><strong>Date of Birth:</strong> June 15, 1989</p>
+            <p><strong>สัญชาติ:</strong> ไทย</p>
+            <p class="en"><strong>Nationality:</strong> Thai</p>
+            <p><strong>ศาสนา:</strong> พุทธ</p>
+            <p class="en"><strong>Religion:</strong> Buddhism</p>
+            <p><strong>ที่อยู่:</strong> 257 หมู่ 6 ตำบลหนองโบสถ์ อำเภอนางรอง จังหวัดบุรีรัมย์</p>
+            <p class="en"><strong>Address:</strong> 257, Moo 6, Nong Bot Subdistrict, Nang Rong District, Buriram Province, Thailand</p>
+        </section>
+
+        <!-- วีดีโอแนะนำตัว -->
+        <section class="intro-video">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="วีดีโอแนะนำตัว" class="icon"> วีดีโอแนะนำตัว</h2>
+            <h2 class="en"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Introduction Video" class="icon"> Introduction Video</h2>
+            <video id="introVideo" src="/video/present.mp4" controls  width="100%">
+                วิดีโอของคุณไม่สามารถแสดงได้ กรุณาลองใช้อุปกรณ์อื่น
+                <br>
+                Your browser does not support the video tag. Please try another device.
+            </video>
+        </section>
+        
+        <!-- ข้อมูลการศึกษา -->
+        <section class="education">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/1077/1077090.png" alt="การศึกษา" class="icon"> การศึกษา</h2>
+            <ul>
+                <li>ฝึกอาชีพ: อาชีวพระมหาไถ่ พัทยา สาขาการพัฒนาระบบสารสนเทศ</li>
+                <li class="en">Vocational Training: Father Ray Foundation, Pattaya, specializing in Information System Development</li>
+                <li>มัธยมปลาย: ศูนย์การศึกษานอกโรงเรียนอำเภอบางละมุง จังหวัดชลบุรี</li>
+                <li class="en">High School: Non-formal Education Center, Bang Lamung District, Chonburi Province</li>
+                <li>มัธยมต้น: โรงเรียนนางรอง จังหวัดบุรีรัมย์</li>
+                <li class="en">Middle School: Nang Rong School, Buriram Province</li>
+                <li>ประถม: โรงเรียนมาลีพิทักษ์นางรอง จังหวัดบุรีรัมย์</li>
+                <li class="en">Primary School: Malee Pitak Nang Rong School, Buriram Province</li>
+            </ul>
+        </section>
+
+        <!-- ประวัติการทำงาน -->
+        <section class="work-experience">
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/1055/1055688.png" alt="ประวัติการทำงาน" class="icon"> ประวัติการทำงาน</h2>
+            <ul>
+                <li>เจ้าหน้าที่ทะเบียนและบัตร ที่ว่าการอำเภอนางรอง</li>
+                <li class="en">Registrar and Card Officer, Nang Rong District Office</li>
+                <li>ครูอัตราจ้าง โรงเรียนบ้านโกรกแก้ว อำเภอโนนสุวรรณ จังหวัดบุรีรัมย์</li>
+                <li class="en">Contract Teacher, Ban Krok Kaeo School, Non Suwan District, Buriram Province</li>
+                <li>แอดมิน ทรูอินเตอร์เน็ต บางละมุง</li>
+                <li class="en">Admin, True Internet, Bang Lamung</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- JavaScript ตรวจจับการเลื่อน -->
+    <script>
+        const video = document.getElementById('introVideo');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { 
+                    video.play(); 
+                    video.muted = false; 
+                } else { 
+                    video.pause(); 
+                    video.muted = true; 
+                }
+            });
+        });
+        observer.observe(video);
+    </script>
+
+</body>
+</html>
